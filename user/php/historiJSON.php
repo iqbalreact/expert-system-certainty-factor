@@ -2,7 +2,7 @@
  
 include('db_connect.php');
  
- $query = "SELECT * FROM `penyakit`";
+ $query = "SELECT * FROM `log_diagnosis` WHERE id_user=";
  $result = mysqli_query($link,$query) or die(mysqli_error());
 
  $arr = array();
