@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+        <title>Sistem Pakar Penyakit Paru</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="ThemeDesign" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="shortcut icon" href="./assets/images/favicon.ico" />
+
+        <!-- Sweet Alert -->
+        <link href="./assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+                <!-- Sweet-Alert  -->
+        <script src="./assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
+        <script src="./assets/pages/sweet-alert.init.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+
+    <body class="fixed-left">
+
+        <script>
+        function Diagnosa(){
+            var id = getUrlParameter('id');
+            window.location.href = 'diagnosa.html?id='+id;
+        }
+
+        function Dashboard(){
+            var id = getUrlParameter('id');
+            window.location.href = 'dashboard.html?id='+id;
+        }
+
+        function Histori(){
+            var id = getUrlParameter('id');
+            window.location.href = 'histori.html?id='+id;
+        }
+
+        function Penyakit(){
+            var id = getUrlParameter('id');
+            window.location.href = 'penyakit.html?id='+id;
+        }
+        function Tentang(){
+            var id = getUrlParameter('id');
+            window.location.href = 'tentang.html?id='+id;
+        }
+    </script>
+
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                    <i class="ti-menu"></i>
+                </button>
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <!--<a href="index.html" class="logo">Admiry</a>-->
+                        <a href="./index.html" class="logo"><img src="./assets/images/logo.png" height="24" alt="logo" /></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-inner slimscrollleft">
+
+                    <div class="user-details">
+                        <div class="text-center">
+                            <img src="./assets/images/users/avatar-6.jpg" alt="" class="rounded-circle" />
+                        </div>
+                        <div class="user-info">
+                           
+                            <span class="text-muted user-status"><i class="fa fa-dot-circle-o text-success"></i> Pakar</span>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="active">
+                                <a onclick='Dashboard()' class="waves-effect">
+                                    <i class="ti-home"></i>
+                                    <span> Home</span></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a onclick='Histori()' class="waves-effect"><i class="ti-book"></i> <span> Histori</span></a>
+                            </li>
+                            <li>
+                                <a onclick='Penyakit()' class="waves-effect"><i class="ti-pulse"></i> <span> Penyakit Paru </span></a>
+                            </li>
+
+                            <li class="menu-title"><hr></li>
+
+                            <li>
+                                <a onclick='Tentang()' class="waves-effect"><i class="ti-info-alt"></i> <span> Tentang Aplikasi </span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> <!-- end sidebarinner -->
+            </div>
+            <!-- Left Sidebar End -->
+            <!-- Start right Content here -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <!-- Top Bar Start -->
+                    <div class="topbar">
+
+                        <nav class="navbar-custom">
+                            <ul class="list-inline menu-left mb-0">
+                                <li class="list-inline-item">
+                                    <button type="button" class="button-menu-mobile open-left waves-effect">
+                                        <i class="ti-menu"></i>
+                                    </button>
+                                </li>
+                                <li class="hide-phone list-inline-item app-search">
+                                    <h3 class="page-title">Sistem Pakar</h3>
+                                </li>
+                            </ul>
+
+                            <div class="clearfix"></div>
+
+                        </nav>
+
+                    </div>
+                    <!-- Top Bar End -->
+
+                    <div class="page-content-wrapper ">
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card m-b-30">
+                                        <div class="card-body">
+
+                                            <h4 class="mt-0 header-title">Lengkapi Data Anda </h4>
+                                        
+                                            <form class="form-horizontal m-t-20" method="post"/>
+
+                                                <div class="form-group">
+                                                    <label>Nama Lengkap</label>
+                                                    <div>
+                                                        <input class="form-control" name="nm_pasien" type="text" required="" placeholder="Nama Lengkap" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div>
+                                                        <label>Umur</label>
+                                                        <input class="form-control" name="umur" type="number" required="" placeholder="umur" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div>
+                                                        <label>Jenis Kelamin</label>
+                                                        <select class="form-control" name="jenis_kl">
+                                                            <option />Pilih
+                                                            <option value="Laki-laki">Laki-Laki</option>
+                                                            <option value="Perempuan">Perempuan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                 <div class="form-group">
+                                                    <label>Tanggal Lahir</label>
+                                                    <div>
+                                                        <input class="form-control" name="tgl_lahir" type="date" required="" placeholder="Golongan Darah" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Alamat</label>
+                                                    <div>
+                                                        <textarea required="" name="alamat" class="form-control" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                    <div align="center">
+                                        <!-- <button style="height: 100px; width: 100%;"  type="submit" class="btn btn-info waves-effect waves-light" onclick="return myFunction()"><span><b>MEMULAI</b></span></button> -->
+                                                            <input type="submit" name="submit" value="Lanjut" class="btn btn-primary push-bottom" data-loading-text="Loading...">
+                                                    </div>
+                                            
+                                            </form>
+                                            <script>
+                                                 $(function(){
+                                                    $('form').on('submit', function(e){
+                                                        e.preventDefault();
+                                                        $.ajax({
+                                                            type :'post',
+                                                            url :'php/add_pasien.php',
+                                                            data: $('form').serialize(),
+                                                            success: function(result){
+                                                                var id = JSON.parse(result);
+                                                                var data = id.id_pasien;
+                                                                // alert(id.id_pasien);
+                                                                window.location = "diagnosa.html?id="+data;
+                                                                // alert(result.);
+                                                            }
+                                                        })
+                                                    })
+                                                 })
+                                            
+                                            </script>
+                                            
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+
+                        </div><!-- container -->
+
+
+                    </div> <!-- Page content Wrapper -->
+
+                </div> <!-- content -->
+
+                <footer class="footer">
+                    © 2018 Siskom - Muhammad Iqbal, S.Kom
+                </footer>
+
+            </div>
+            <!-- End Right content here -->
+
+        </div>
+        <!-- END wrapper -->
+
+
+        <!-- jQuery  -->
+        <script src="./assets/js/jquery.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/modernizr.min.js"></script>
+        <script src="./assets/js/detect.js"></script>
+        <script src="./assets/js/fastclick.js"></script>
+        <script src="./assets/js/jquery.slimscroll.js"></script>
+        <script src="./assets/js/jquery.blockUI.js"></script>
+        <script src="./assets/js/waves.js"></script>
+        <script src="./assets/js/jquery.nicescroll.js"></script>
+        <script src="./assets/js/jquery.scrollTo.min.js"></script>
+
+        <!-- App js -->
+        <script src="./assets/js/app.js"></script>
+
+    </body>
+</html>

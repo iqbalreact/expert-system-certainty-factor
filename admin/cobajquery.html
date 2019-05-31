@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	
+	<form action="" method="post">
+		<label for="">Nilai Awal</label>
+		<input type="number" name="awal" id="awal">
+		<label for="">Nilai AKhir</label>
+		<input type="number" name="akhir" id="akhir">
+
+		<button type="submit">Kirim</button>
+	</form>
+	
+	<script>
+		
+		$(document).ready(function(){
+		  $("button").click(function(){
+		    var awal = $('awal').val().length;
+
+		    console.log(awal);
+		  });
+		});
+
+	</script>
+
+</body>
+</html>

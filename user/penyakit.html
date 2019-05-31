@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+        <title>Sistem Pakar Penyakit Paru</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="ThemeDesign" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="shortcut icon" href="./assets/images/favicon.ico" />
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="./assets/plugins/morris/morris.css" />
+
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+
+    <body class="fixed-left">
+     <!-- fungsi ambil id get -->
+                    <script type="text/javascript">
+                        var getUrlParameter = function getUrlParameter(sParam) {
+                            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                                sURLVariables = sPageURL.split('&'),
+                                sParameterName,
+                                i;
+
+                            for (i = 0; i < sURLVariables.length; i++) {
+                                sParameterName = sURLVariables[i].split('=');
+
+                                if (sParameterName[0] === sParam) {
+                                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                                }
+                            }
+                        };
+                    </script>
+
+        <script>
+        function Diagnosa(){
+            var id = getUrlParameter('id');
+            window.location.href = 'diagnosa.html?id='+id;
+        }
+
+        function Dashboard(){
+            var id = getUrlParameter('id');
+            window.location.href = 'dashboard.html?id='+id;
+        }
+
+        function Histori(){
+            var id = getUrlParameter('id');
+            window.location.href = 'histori.html?id='+id;
+        }
+
+        function Penyakit(){
+            var id = getUrlParameter('id');
+            window.location.href = 'penyakit.html?id='+id;
+        }
+        function Tentang(){
+            var id = getUrlParameter('id');
+            window.location.href = 'tentang.html?id='+id;
+        }
+    </script>
+
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                    <i class="ti-menu"></i>
+                </button>
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <!--<a href="index.html" class="logo">Admiry</a>-->
+                        <a href="./index.html" class="logo"><img src="./assets/images/logo.png" height="24" alt="logo" /></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-inner slimscrollleft">
+
+                    <div class="user-details">
+                        <div class="text-center">
+                            <img src="./assets/images/users/avatar-6.jpg" alt="" class="rounded-circle" />
+                        </div>
+                        <div class="user-info">
+                           
+                            <span class="text-muted user-status"><i class="fa fa-dot-circle-o text-success"></i> Pakar</span>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="active">
+                                <a onclick='Dashboard()' class="waves-effect">
+                                    <i class="ti-home"></i>
+                                    <span> Home</span></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a onclick='Histori()' class="waves-effect"><i class="ti-book"></i> <span> Histori</span></a>
+                            </li>
+                            <li>
+                                <a onclick='Penyakit()' class="waves-effect"><i class="ti-pulse"></i> <span> Penyakit Paru </span></a>
+                            </li>
+
+                            <li class="menu-title"><hr></li>
+
+                            <li>
+                                <a onclick='Tentang()' class="waves-effect"><i class="ti-info-alt"></i> <span> Tentang Aplikasi </span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> <!-- end sidebarinner -->
+            </div>
+            <!-- Left Sidebar End -->
+            <!-- Start right Content here -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <!-- Top Bar Start -->
+                    <div class="topbar">
+
+                        <nav class="navbar-custom">
+
+                            <ul class="list-inline menu-left mb-0">
+                                <li class="list-inline-item">
+                                    <button type="button" class="button-menu-mobile open-left waves-effect">
+                                        <i class="ti-menu"></i>
+                                    </button>
+                                </li>
+                                <li class="hide-phone list-inline-item app-search">
+                                    <!-- <h3 class="page-title">Dashboard</h3> -->
+                                </li>
+                            </ul>
+
+                            <div class="clearfix"></div>
+
+                        </nav>
+
+                    </div>
+                    <!-- Top Bar End -->
+                    
+                    <script>
+                    $(document).ready(function(){
+                        $.getJSON("php/penyakitJSON.php", function(data){
+
+                            var employee_data = '';
+                            var gambar = '';
+                            $.each(data, function(key, value){
+                                employee_data +='<div class="card m-b-30 card-body">'
+                                employee_data += '<h4 class="card-title font-20 mt-0">'+ value.Penyakit +'</h4>';
+                                employee_data += '<p class="card-text">' + value.Deskripsi +'</p>';
+                                /*employee_data += '<span class="card-text">' +"<b>Penyebab :&nbsp</b>"+ value.Penyebab +'</span>';*/
+                                employee_data +='</div>';                                
+                            });
+                            $('.page-content-wrapper').append(employee_data);
+                            /*$('.post-image').append(gambar);*/
+                            $('.tombol').click(function(){
+                                window.location ="gabung.html?id="+($(this).attr('id'));
+                                /*alert($(this).attr('id'));*/
+                            });
+
+                        });
+                    });
+                    </script>
+
+
+
+                    <div class="page-content-wrapper" style="text-align: justify;">
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                    
+                                <div class="card m-b-30 card-body">
+                                    <h4>Jenis Penyakit Paru-Paru</h4>
+                                </div>
+
+                            </div>
+                            <!-- end row -->
+
+
+                        </div><!-- container -->
+
+
+                    </div> <!-- Page content Wrapper -->
+
+                </div> <!-- content -->
+
+                <footer class="footer">
+                    © 2018 Muhammad Iqbal, S.Kom
+                </footer>
+
+            </div>
+            <!-- End Right content here -->
+
+        </div>
+        <!-- END wrapper -->
+
+
+        <!-- jQuery  -->
+        <script src="./assets/js/jquery.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/modernizr.min.js"></script>
+        <script src="./assets/js/detect.js"></script>
+        <script src="./assets/js/fastclick.js"></script>
+        <script src="./assets/js/jquery.slimscroll.js"></script>
+        <script src="./assets/js/jquery.blockUI.js"></script>
+        <script src="./assets/js/waves.js"></script>
+        <script src="./assets/js/jquery.nicescroll.js"></script>
+        <script src="./assets/js/jquery.scrollTo.min.js"></script>
+
+        <!--Morris Chart-->
+        <script src="./assets/plugins/morris/morris.min.js"></script>
+        <script src="./assets/plugins/raphael/raphael-min.js"></script>
+
+        <script src="./assets/pages/dashborad.js"></script>
+
+        <!-- App js -->
+        <script src="./assets/js/app.js"></script>
+
+    </body>
+</html>
