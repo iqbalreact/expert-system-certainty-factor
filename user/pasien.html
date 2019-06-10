@@ -31,30 +31,25 @@
     <body class="fixed-left">
 
         <script>
-        function Diagnosa(){
             var id = getUrlParameter('id');
-            window.location.href = 'diagnosa.html?id='+id;
-        }
-
-        function Dashboard(){
-            var id = getUrlParameter('id');
-            window.location.href = 'dashboard.html?id='+id;
-        }
-
-        function Histori(){
-            var id = getUrlParameter('id');
-            window.location.href = 'histori.html?id='+id;
-        }
-
-        function Penyakit(){
-            var id = getUrlParameter('id');
-            window.location.href = 'penyakit.html?id='+id;
-        }
-        function Tentang(){
-            var id = getUrlParameter('id');
-            window.location.href = 'tentang.html?id='+id;
-        }
-    </script>
+                    function Diagnosa(){
+                        window.location.href = 'diagnosa.html?id='+id;
+                    }
+                    function Dashboard(){
+                        window.location.href = 'dashboard.html?id='+id;
+                    }
+                    function Histori(){
+                        window.location.href = 'histori.html?id='+id;
+                    }
+            
+                    function Penyakit(){
+                        window.location.href = 'penyakit.html?id='+id;
+                    }
+                    function Tentang(){
+                        window.location.href = 'tentang.html?id='+id;
+                    }
+            
+        </script>
 
         <!-- Loader -->
         <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
