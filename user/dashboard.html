@@ -17,6 +17,11 @@
         <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="./assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> 
+
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
@@ -42,32 +47,24 @@
 
 
     <script>
+        var id = getUrlParameter('id');
         function Diagnosa(){
-            var id = getUrlParameter('id');
             window.location.href = 'diagnosa.html?id='+id;
         }
-
         function Dashboard(){
-            var id = getUrlParameter('id');
             window.location.href = 'dashboard.html?id='+id;
         }
-
         function Histori(){
-            var id = getUrlParameter('id');
             window.location.href = 'histori.html?id='+id;
-
-            
-
         }
 
         function Penyakit(){
-            var id = getUrlParameter('id');
             window.location.href = 'penyakit.html?id='+id;
         }
         function Tentang(){
-            var id = getUrlParameter('id');
             window.location.href = 'tentang.html?id='+id;
         }
+
     </script>
 
         <!-- Loader -->
