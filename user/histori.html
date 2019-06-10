@@ -61,6 +61,9 @@
         function Tentang(){
             window.location.href = 'tentang.html?id='+id;
         }
+        function Keluar(){
+            window.location.href = 'index.html';
+        }
 
     </script>
 
@@ -117,6 +120,9 @@
                             <li>
                                 <a onclick='Tentang()' class="waves-effect"><i class="ti-info-alt"></i> <span> Tentang Aplikasi </span></a>
                             </li>
+                            <li>
+                                <a onclick='Keluar()' class="waves-effect"><i class="ti-arrow-left"></i> <span> Keluar </span></a>
+                            </li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -172,13 +178,14 @@
                         $(document).ready(function(){
                             $.getJSON("php/historiJSON.php?id="+id, function(data){
                                 var histori = '';
-                                var no = 0;
+                                var no = 1;
                                 $.each(data, function(i, item){
                                         console.log(item.penyakit);
                                         histori += '<dl class="row">';
-                                        // histori += '<dd class="col-sm-1">'+no+'</dd>'
-                                        histori += '<dd class="col-sm-5">Nama Penyakit : '+item.penyakit+'</dd>'
-                                        histori += '<dd class="col-sm-6">Tanggal Diagnosisi : '+item.date+'</dd>'
+                                        histori += '<dd class="col-sm-1">'+[no++]+'</dd>'
+                                        histori += '<dd class="col-sm-3">Nama Penyakit : '+item.penyakit+'</dd>'
+                                        histori += '<dd class="col-sm-3">Nilai CF : '+item.nilaicf+' %</dd>'
+                                        histori += '<dd class="col-sm-3">Tanggal Diagnosisi : '+item.date+'</dd>'
                                         histori += '</dl>'
                                         histori += '<hr>'
                                         // $('#namapenyakit').html(item.penyakit);
