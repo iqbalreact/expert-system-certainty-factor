@@ -158,6 +158,7 @@
                     </div>
                     <!-- Top Bar End -->
                     <script>
+                      $.ajaxSetup({ cache: true});
                       $.getJSON("php/results.json", function(response) {
                              $('#pasien').html(response.pasien);
                              $('#kelamin').html(response.kelamin);
@@ -169,6 +170,7 @@
                              $('#pengobatan').html(response.pengobatan);
                              $('#nilaicf').html(response.nilaicf+'%');
                              $('#tanggal').html(response.date);
+                             $.ajaxSetup({ cache: false});
                              });
                     </script>
 
