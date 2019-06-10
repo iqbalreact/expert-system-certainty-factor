@@ -44,28 +44,21 @@
                     </script>
 
     <script>
+        var id = getUrlParameter('id');
         function Diagnosa(){
-            var id = getUrlParameter('id');
             window.location.href = 'diagnosa.html?id='+id;
         }
-
         function Dashboard(){
-            var id = getUrlParameter('id');
             window.location.href = 'dashboard.html?id='+id;
         }
-
         function Histori(){
-            var id = getUrlParameter('id');
             window.location.href = 'histori.html?id='+id;
-
         }
 
         function Penyakit(){
-            var id = getUrlParameter('id');
             window.location.href = 'penyakit.html?id='+id;
         }
         function Tentang(){
-            var id = getUrlParameter('id');
             window.location.href = 'tentang.html?id='+id;
         }
 
@@ -174,6 +167,27 @@
                              });
                     </script>
 
+                    <script>
+                        var id = getUrlParameter('id');
+                        $(document).ready(function(){
+                            $.getJSON("php/historiJSON.php?id="+id, function(data){
+                                var histori = '';
+                                var no = 0;
+                                $.each(data, function(i, item){
+                                        console.log(item.penyakit);
+                                        histori += '<dl class="row">';
+                                        // histori += '<dd class="col-sm-1">'+no+'</dd>'
+                                        histori += '<dd class="col-sm-5">Nama Penyakit : '+item.penyakit+'</dd>'
+                                        histori += '<dd class="col-sm-6">Tanggal Diagnosisi : '+item.date+'</dd>'
+                                        histori += '</dl>'
+                                        histori += '<hr>'
+                                        // $('#namapenyakit').html(item.penyakit);
+                                }); 
+                                $('.histori').append(histori);
+                            })
+                        });
+                    </script>
+
                     <div class="page-content-wrapper ">
 
                         <div class="container-fluid">
@@ -187,27 +201,15 @@
 
                                             <h4 class="mt-0 header-title">Histori Diagnosa Penyakit</h4>
                                             <p class="text-muted m-b-30 font-14">Ini adalah histori diagnosis yang telah anda lakukan sebelumnya.</p>
-                                            
-                                            <dl class="row">
-                                                <dt class="col-sm-3">Identitas Pasien</dt>
-                                            </dl>
-                                            <dl class="row">
-                                                <dt class="col-sm-3">Nama Lengkap</dt>
-                                                <dd class="col-sm-9">: <span id="pasien"></span></dd>
-                                            </dl>
-                                            <dl class="row">
-                                                <dt class="col-sm-3">Tanggal Lahir</dt>
-                                                <dd class="col-sm-9">: <span id="tgl"></span></dd>
-                                            </dl>
-                                            <dl class="row">
-                                                <dt class="col-sm-3">Alamat</dt>
-                                                <dd class="col-sm-9">: <span id="alamat"></span></dd>
-                                            </dl>
-                                            <hr>
                                             <dl class="row">
                                                 <dt class="col-sm-3">Riwayat Diagnosis</dt>
                                             </dl>
                                             <hr>
+                                            
+                                            <div class="histori">
+                                                
+
+                                            </div>
 
                                         </div>
                                     </div>
